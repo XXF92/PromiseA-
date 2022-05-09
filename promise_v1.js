@@ -39,13 +39,13 @@ class Mypromies{
         }
     }
 
-    //定义then方法 接受resolve的值
+    //定义then方法 接受resolve的值 同步
     then(onFullfilled,onRejected){
         if(this.state === "fullfilled" && typeof(onFullfilled) === "function"){
             onFullfilled(this.value);
         }
 
-        if(this.state === "rejected" && typeof(onFullfilled) === "function"){
+        if(this.state === "rejected" && typeof(onRejected) === "function"){
             onRejected(this.reason);
         }
     }
@@ -54,6 +54,7 @@ class Mypromies{
  
 }
 
+//测试代码
 var p = new Mypromies( (resolve,reject) =>{
     resolve("success");
     // reject("fail");
